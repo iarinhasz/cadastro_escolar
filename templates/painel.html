@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Painel</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/painel.css') }}">
+    </head>
+    <body>
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <h2 class="active"> Painel do Administrador </h2>
+
+                <a href="/cadastro" class="botao-painel">Cadastrar Aluno</a>
+                <a href="/editar" class="botao-painel">Editar dados</a>
+                <a href="/excluir" class="botao-painel">Excluir Aluno</a>
+            
+            </div>
+        </div>
+    </body>
+
+</html>

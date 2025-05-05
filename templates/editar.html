@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}Editar Aluno{% endblock %}
+
+{% block content %}
+<h2>Editar Dados de Aluno</h2>
+
+{% if erro %}
+    <div class="alert alert-danger">{{ erro }}</div>
+{% endif %}
+
+<form method="POST">
+    <!-- Seleção de aluno -->
+    <div class="mb-3">
+        <label for="matricula" class="form-label">Selecione o aluno:</label>
+        <select class="form-select" id="matricula" name="matricula" required>
+            {% for aluno in alunos %}
+                <option value="{{ aluno[0] }}">{{ aluno[1] }} ({{ aluno[0] }})</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Campo a editar -->
+    <div class="mb-3">
+        <label for="campo" class="form-label">Campo a editar:</label>
+        <select class="form-select" id="campo" name="campo" required>
+            <option value="">Selecione</option>
+            <option value="nome">Nome</option>
+            <option value="data_nascimento">Data de Nascimento</option>
+            <option value="turma_id">Turma</option>
+            <option value="matricula">Matrícula</option>
+        </select>
+    </div>
+
+    <!-- Novo valor: input ou select -->
+    <div class="mb-3" id="campo-valor">
+        <label for="novo_valor" class="form-label">Novo valor:</label>
+    
+        <input type="text" class="form-control" id="input_padrao" name="novo_valor_texto" required>
+
+        <select class="form-select mt-2" id="turma_select" name="novo_valor_turma" style="display: none;">
+            <option value="">Selecione uma turma</option>
+            {% for turma in turmas %}
+                <option value="{{ turma[0] }}">{{ turma[1] }} - {{ turma[2] }} ({{ turma[3] }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-warning">Salvar Alteração</button>
+</form>
+
+<script>
+    const campoSelect = document.getElementById('campo');
+    const inputPadrao = document.getElementById('input_padrao');      // campo de texto
+    const turmaSelect = document.getElementById('turma_select');      // select de turmas
+
+    campoSelect.addEventListener('change', function () {
+        if (this.value === 'turma_id') {
+            inputPadrao.style.display = 'none';
+            inputPadrao.required = false;
+
+            turmaSelect.style.display = 'block';
+            turmaSelect.required = true;
+        } else {
+            turmaSelect.style.display = 'none';
+            turmaSelect.required = false;
+
+            inputPadrao.style.display = 'block';
+            inputPadrao.required = true;
+        }
+    });
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Consulta de Alunos{% endblock %}
+
+{% block content %}
+<h2>Consultar Reserva de Alunos</h2>
+
+<form method="POST">
+    <div class="mb-3">
+        <label for="escola_id">Escola:</label>
+        <select name="escola_id" class="form-select" onchange="this.form.submit()">
+            <option value="">Selecione</option>
+            {% for escola in escolas %}
+                <option value="{{ escola[0] }}" {% if escola_selecionada == escola[0]|string %}selected{% endif %}>
+                    {{ escola[1] }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    {% if turmas %}
+    <div class="mb-3">
+        <label for="turma_id">Turma:</label>
+        <select name="turma_id" class="form-select" onchange="this.form.submit()">
+            <option value="">Selecione</option>
+            {% for turma in turmas %}
+                <option value="{{ turma[0] }}" {% if turma_selecionada == turma[0]|string %}selected{% endif %}>
+                    {{ turma[1] }} ({{ turma[2] }})
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+</form>
+
+{% if alunos %}
+<h3>Alunos da Turma</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aluno in alunos %}
+        <tr>
+            <td>{{ aluno[0] }}</td>
+            <td>{{ aluno[1] }}</td>
+            <td>{{ aluno[2] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% elif turma_selecionada %}
+    <div class="alert alert-warning">Nenhum aluno encontrado para essa turma.</div>
+{% endif %}
+{% endblock %}

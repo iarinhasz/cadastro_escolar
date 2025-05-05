@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+/* Fundo azul */
+html, body {
+    background-color: #56baed;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Centraliza a caixa branca */
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Caixa branca com sombra*/
+#formContent {
+    border-radius: 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Título */
+h1, h2, h5 {
+    color: #0d0d0d;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+h1.active {
+    font-size: 20px;
+    border-bottom: 2px solid #5fbae9;
+    margin-bottom: 30px;
+}
+/* Botões */
+.botao, .btn {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    text-transform: uppercase;
+    font-size: 13px;
+    box-shadow: 0 10px 30px rgba(95, 186, 233, 0.4);
+    border-radius: 5px;
+    margin: 10px auto;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.botao:hover, .btn:hover {
+    background-color: #39ace7;
+}
+
+/* Estilo para links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.btn {
+    color: white !important;
+}
+
+/* Modais ajustados para ficarem centralizados e destacados */
+.modal-header, .modal-body, .modal-footer {
+    text-align: center;
+}
+.modal-header.bg-danger {
+    background-color: #56baed !important; /* Vermelho mais escuro */
+    color: white;
+}
+
+.modal {
+    display: none;
+}
+
+.modal.show {
+    display: block;
+    padding-right: 0 !important;
+}
+
+.modal-backdrop.show {
+    opacity: 0.5;
+}
+
+.modal-content {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.botao1 {
+    background-color: #56baed; /* Azul claro */
+    color: white;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 10px 30px rgba(95, 186, 233, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+.botao1:hover {
+    background-color: #39ace7;
+}
+
+.botao2 {
+    background-color: #6c757d; /* Cinza Bootstrap */
+    color: white;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 10px 30px rgba(108, 117, 125, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+.botao2:hover {
+    background-color: #5a6268;
+}
+
+/* Fade-in animado */
+.fadeInDown {
+    animation: fadeInDown 1s ease forwards;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
