@@ -26,7 +26,7 @@ Este projeto tem como objetivo desenvolver um sistema de **cadastro escolar** pa
   - Turmas
   - Turnos
   - Administradores
-- O banco é responsável por armazenar todas as informações dos estudantes e autenticação dos usuários.
+- O banco é responsável por armazenar todas as informações dos estudantes
 
 ### 🐍 Backend (Python)
 - Framework: **Flask**
@@ -45,7 +45,7 @@ Este projeto tem como objetivo desenvolver um sistema de **cadastro escolar** pa
 ## 🖼️ Imagens do Sistema
 
 ### 📌 Página Inicial
-![Página Inicial](static/img/pag_incial.png)
+![Página Inicial](static/img/pag_inicial.png)
 
 ### 🔐 Login do Administrador
 ![Login ADM](static/img/login_adm.png)
@@ -53,7 +53,7 @@ Este projeto tem como objetivo desenvolver um sistema de **cadastro escolar** pa
 ### ⚙️ Painel do Administrador
 ![Painel ADM](static/img/painel_adm.png)
 
-> As telas acima foram estilizadas com **CSS customizado**, exceto a página inicial, que segue apenas com Bootstrap.
+> As telas acima foram estilizadas com **CSS customizado**, o restante seguem apenas com Bootstrap.
 
 ---
 
