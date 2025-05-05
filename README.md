@@ -27,6 +27,8 @@ Este projeto tem como objetivo desenvolver um sistema de **cadastro escolar** pa
   - Turnos
   - Administradores
 - O banco é responsável por armazenar todas as informações dos estudantes
+⚠️ Observação: As tabelas **escola**, **turno**, **turma** e **administrador** devem ser preenchidas previamente via comandos SQL diretamente no banco de dados. O sistema não possui interface para cadastro dessas entidades.
+
 
 ### 🐍 Backend (Python)
 - Framework: **Flask**
