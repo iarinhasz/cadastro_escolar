@@ -3,7 +3,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, U
 import psycopg2
 from psycopg2 import IntegrityError
 from datetime import datetime
-
+import os
 
 data_hora = datetime.now()
 
@@ -19,13 +19,10 @@ login_manager.login_view = 'login'
 def inject_user():
     return dict(current_user=current_user)
 
+DATABASE_URL = os.getenv('DATABASE_URL')
+conn = psycopg2.connect(DATABASE_URL)
+cursor = conn.cursor()
 
-conn = psycopg2.connect(
-    host="localhost",
-    database="cadastro_escolar",
-    user="iarinhasz",
-    password="210202"
-)
 cursor = conn.cursor()
 
 class Admin(UserMixin):
