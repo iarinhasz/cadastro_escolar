@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: cadastro-escolar
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: DATABASE_URL
+        value: <sua URL do PostgreSQL, se for remoto>
