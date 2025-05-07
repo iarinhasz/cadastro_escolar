@@ -80,20 +80,16 @@ def painel():
 @app.route('/cadastro', methods=['GET', 'POST'])
 @login_required
 def cadastro():
-    
     erro = None
-    
-    if 'admin' not in session:
-        return redirect('/login')
+
     if request.method == 'POST':
         matricula = request.form['matricula']
         nome = request.form['nome']
         data_nascimento = request.form['data_nascimento']
         turma_id = request.form['turma_id']
-        # pegar o id do admin da sessão (você pode ter buscado na hora do login)
-        cursor.execute("SELECT id FROM administrador WHERE email = %s", (session['admin'],))
-        adm = cursor.fetchone()
-        administrador_id = adm[0]
+
+        administrador_id = current_user.id  # aqui está a mudança!
+
         try:
             cursor.execute(
                 "INSERT INTO alunos (matricula, nome, data_nascimento, administrador_id, turma_id) VALUES (%s, %s, %s, %s, %s)",
@@ -119,13 +115,11 @@ def cadastro():
 
     return render_template('cadastro.html', turmas=turmas, erro=erro)
 
+
 @app.route('/editar', methods=['GET', 'POST'])
 @login_required
 def editar():
     erro = None
-    if 'admin' not in session:
-        return redirect('/login')
-
     if request.method == 'POST':
         matricula = request.form['matricula']
         campo = request.form['campo']
@@ -175,9 +169,6 @@ def editar():
 @login_required
 def excluir():
     erro = None
-    if 'admin' not in session:
-        return redirect('/login')
-    
     if request.method == 'POST':
         matricula = request.form['matricula']
         cursor.execute("DELETE FROM alunos WHERE matricula = %s", (matricula,))
